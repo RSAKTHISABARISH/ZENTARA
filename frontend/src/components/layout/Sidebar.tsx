@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { 
-  LayoutDashboard, 
+  Home, 
   UploadCloud, 
   MessageSquare, 
   FileText, 
@@ -15,7 +15,7 @@ import {
 import { motion } from "framer-motion";
 
 const sidebarLinks = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Home", href: "/", icon: Home },
   { name: "Upload Contract", href: "/upload", icon: UploadCloud },
   { name: "AI Chat", href: "/chat", icon: MessageSquare },
   { name: "Insights", href: "/insights", icon: FileText },

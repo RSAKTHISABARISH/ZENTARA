@@ -2,164 +2,165 @@
 
 import { motion } from "framer-motion";
 import { 
-  TrendingUp, 
-  ShieldAlert, 
-  Clock, 
-  DollarSign, 
-  ArrowUpRight, 
-  Boxes, 
-  MapPin, 
-  Activity,
-  ChevronRight
+  Zap, 
+  ShieldCheck, 
+  Globe, 
+  Cpu, 
+  Search, 
+  Database, 
+  Layers,
+  Sparkles,
+  ChevronRight,
+  ArrowRight
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-const performanceStats = [
-  { title: "Avg. Delivery Time", value: "2.4 Days", icon: Clock, trend: "-12% this week", color: "text-blue-600" },
-  { title: "Active Shipments", value: "1,420", icon: Boxes, trend: "+8.4%", color: "text-emerald-600" },
-  { title: "Risk Level", value: "Low", icon: ShieldAlert, trend: "Stable", color: "text-amber-600" },
-  { title: "Cost Savings", value: "$42.5k", icon: DollarSign, trend: "+15% YoY", color: "text-violet-600" },
-];
-
-const shippingAlerts = [
-  { id: 1, route: "Shanghai ➔ Long Beach", status: "Delayed", delay: "48h", risk: "high", reason: "Port Congestion" },
-  { id: 2, route: "Rotterdam ➔ New York", status: "On Track", delay: "0h", risk: "low", reason: "Weather Clear" },
-  { id: 3, route: "Singapore ➔ Mumbai", status: "At Risk", delay: "12h", risk: "medium", reason: "Customs Backlog" },
-];
-
-export default function ZentaraDashboard() {
-  return (
-    <div className="space-y-8 pb-10">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="space-y-1">
-          <h1 className="text-4xl font-extrabold tracking-tight text-primary">ZENTARA Intelligence</h1>
-          <p className="text-muted-foreground text-lg">
-            Elite real-time monitoring & AI-driven predictive insights.
+const AboutSection = () => (
+  <div className="space-y-12 pb-20">
+    {/* Hero Section */}
+    <div className="relative overflow-hidden rounded-3xl bg-slate-950 p-8 md:p-16 text-white shadow-2xl border border-white/10">
+      <div className="absolute top-0 right-0 -mt-20 -mr-20 h-64 w-64 rounded-full bg-primary/20 blur-[100px]" />
+      <div className="absolute bottom-0 left-0 -mb-20 -ml-20 h-64 w-64 rounded-full bg-violet-500/10 blur-[100px]" />
+      
+      <div className="relative z-10 max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Badge className="mb-4 bg-primary text-primary-foreground font-bold px-4 py-1">Mission Control</Badge>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
+            ZENTARA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400">Intelligence</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-400 leading-relaxed mb-8">
+            The world's most advanced AI-driven logistics ecosystem. We leverage state-of-the-art Retrieval-Augmented Generation to transform complex supply chain data into actionable intelligence.
           </p>
-        </div>
-        <div className="flex gap-2">
-          <Badge variant="outline" className="px-4 py-1.5 text-sm font-medium bg-background shadow-sm border-primary/20">
-            <Activity className="h-3.5 w-3.5 mr-2 text-primary" />
-            System Live
-          </Badge>
-          <Badge className="px-4 py-1.5 text-sm font-medium shadow-md">
-            v2.4 AI Model
-          </Badge>
-        </div>
-      </div>
-
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {performanceStats.map((stat, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <Card className="border-none shadow-elegant hover:shadow-hover transition-all duration-300 overflow-hidden group">
-              <div className="h-1 w-full bg-primary/10 absolute top-0 left-0 group-hover:bg-primary transition-colors" />
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-bold uppercase tracking-wider text-muted-foreground">{stat.title}</CardTitle>
-                <div className={`p-2 rounded-lg bg-background border shadow-sm ${stat.color}`}>
-                  <stat.icon className="h-4 w-4" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-black tracking-tighter">{stat.value}</div>
-                <div className="flex items-center gap-1 mt-2">
-                  <TrendingUp className="h-3 w-3 text-emerald-500" />
-                  <span className="text-xs font-semibold text-emerald-500">{stat.trend}</span>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="grid gap-8 md:grid-cols-12">
-        <Card className="md:col-span-8 border-none shadow-elegant">
-          <CardHeader className="flex flex-row items-center justify-between">
-            <div className="space-y-1">
-              <CardTitle className="text-xl font-bold">Predictive Route Analytics</CardTitle>
-              <CardDescription>AI simulation of current transit high-risk zones</CardDescription>
-            </div>
-            <button className="text-primary text-sm font-bold flex items-center hover:underline">
-              Full Report <ChevronRight className="h-4 w-4 ml-1" />
+          <div className="flex flex-wrap gap-4">
+            <button className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-3 rounded-xl transition-all flex items-center gap-2 group">
+              Explore Ecosystem <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
+            <button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold px-8 py-3 rounded-xl transition-all">
+              Watch Demo
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+
+    {/* AI Agent RAG System Section */}
+    <div className="grid md:grid-cols-2 gap-8 items-center">
+      <div className="space-y-6">
+        <div className="inline-flex p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary">
+          <Cpu className="h-6 w-6" />
+        </div>
+        <h2 className="text-3xl font-black tracking-tight">The RAG Core: <span className="text-primary italic">Neural Retrieval</span></h2>
+        <p className="text-muted-foreground text-lg leading-relaxed">
+          ZENTARA's AI Agent isn't just a chatbot—it's a sophisticated RAG (Retrieval-Augmented Generation) system designed for precision. It bridges the gap between static LLM knowledge and your enterprise's dynamic logistics documents.
+        </p>
+        
+        <div className="space-y-4 pt-4">
+          <div className="flex items-start gap-4">
+            <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500">
+              <Zap className="h-3 w-3" />
+            </div>
+            <div>
+              <h4 className="font-bold">Gemini 1.5 Pro Engine</h4>
+              <p className="text-sm text-muted-foreground">Utilizing ultra-long context windows for holistic contract understanding.</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-blue-500/10 text-blue-500">
+              <Database className="h-3 w-3" />
+            </div>
+            <div>
+              <h4 className="font-bold">ChromaDB Vector Store</h4>
+              <p className="text-sm text-muted-foreground">High-dimensional semantic indexing for millisecond retrieval of critical clauses.</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-4">
+            <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-violet-500/10 text-violet-500">
+              <Globe className="h-3 w-3" />
+            </div>
+            <div>
+              <h4 className="font-bold">Live Web Integration</h4>
+              <p className="text-sm text-muted-foreground">Cross-referencing internal data with real-time global logistics terms and news.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative">
+        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-violet-500 opacity-20 blur-2xl rounded-[3rem]" />
+        <Card className="relative border-none shadow-2xl overflow-hidden bg-slate-900 text-white">
+          <CardHeader className="border-b border-white/5 bg-white/5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-500" />
+                <div className="h-3 w-3 rounded-full bg-amber-500" />
+                <div className="h-3 w-3 rounded-full bg-emerald-500" />
+              </div>
+              <Badge variant="outline" className="text-xs border-white/20 text-white/50">rag_pipeline.py</Badge>
+            </div>
           </CardHeader>
-          <CardContent>
-            <div className="relative h-[400px] w-full bg-slate-50 border rounded-xl overflow-hidden flex items-center justify-center">
-               <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-               {/* Visual Placeholder for Map/AI Graph */}
-               <div className="relative text-center space-y-4">
-                 <div className="flex justify-center -space-x-4">
-                    {[1,2,3,4].map(idx => (
-                      <div key={idx} className="h-12 w-12 rounded-full border-4 border-white bg-primary/10 flex items-center justify-center animate-pulse" style={{ animationDelay: `${idx * 0.5}s` }}>
-                        <MapPin className="h-5 w-5 text-primary" />
-                      </div>
-                    ))}
-                 </div>
-                 <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">Global Logistics AI Grid Active</p>
-                 <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                    <div className="bg-white p-3 rounded-lg shadow-sm border text-left">
-                       <p className="text-[10px] uppercase font-bold text-muted-foreground">Highest Delay Probability</p>
-                       <p className="text-sm font-black text-destructive">Panama Canal (84%)</p>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg shadow-sm border text-left">
-                       <p className="text-[10px] uppercase font-bold text-muted-foreground">Optimal Alternative</p>
-                       <p className="text-sm font-black text-emerald-600">Suez Route (+2.1d)</p>
-                    </div>
-                 </div>
-               </div>
+          <CardContent className="p-0">
+            <pre className="p-6 text-sm font-mono overflow-x-hidden">
+              <code className="text-blue-400">def</code> <code className="text-white">ask_contract_question</code>(question, vectorstore):{"\n"}
+              {"  "}context = vectorstore.search(question){"\n"}
+              {"  "}prompt = f<code className="text-amber-300">"Using this context: {"{"}context{"}"}"</code>{"\n"}
+              {"  "}response = gemini.generate(prompt){"\n"}
+              {"  "}<code className="text-violet-400">return</code> response
+            </pre>
+            <div className="bg-primary/20 p-4 border-t border-white/10 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-primary" />
+                <span className="text-xs font-bold uppercase tracking-widest text-primary">Agent Optimized</span>
+              </div>
+              <div className="flex -space-x-2">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="h-6 w-6 rounded-full border-2 border-slate-900 bg-slate-800" />
+                ))}
+              </div>
             </div>
           </CardContent>
         </Card>
+      </div>
+    </div>
 
-        <div className="md:col-span-4 space-y-6">
-          <Card className="border-none shadow-elegant bg-primary text-primary-foreground">
+    {/* Key Features Overview */}
+    <div className="space-y-8">
+      <div className="text-center max-w-2xl mx-auto">
+        <h2 className="text-3xl font-black mb-4">Core Ecosystem Features</h2>
+        <p className="text-muted-foreground">Beyond standard tracking, we provide a full-spectrum AI intelligence suite.</p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-6">
+        {[
+          { title: "Predictive Insights", icon: Zap, desc: "Early warning systems for customs and port delays." },
+          { title: "Risk Safeguard", icon: ShieldCheck, desc: "Automated liability analysis for every carrier contract." },
+          { title: "Global Mesh", icon: Globe, desc: "Unified dashboard for multi-modal international transit." }
+        ].map((item, i) => (
+          <Card key={i} className="border-none shadow-elegant hover:scale-[1.02] transition-all bg-card/50 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-lg">AI Cost Optimizer</CardTitle>
-              <CardDescription className="text-primary-foreground/70">Potential monthly savings identified</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="text-4xl font-black">$12,450.00</div>
-              <div className="pt-2">
-                <button className="w-full bg-white text-primary font-bold py-3 rounded-lg hover:bg-slate-50 transition-colors flex items-center justify-center">
-                  Implement Recommendations
-                  <ArrowUpRight className="h-4 w-4 ml-2" />
-                </button>
+              <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-2">
+                <item.icon className="h-6 w-6" />
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-none shadow-elegant">
-            <CardHeader>
-              <CardTitle className="text-lg">Critical Logistics Alerts</CardTitle>
-              <CardDescription>Requiring immediate personnel attention</CardDescription>
+              <CardTitle>{item.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                {shippingAlerts.map((alert, i) => (
-                  <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-slate-50/50 border group hover:bg-white hover:shadow-sm transition-all">
-                    <div className="space-y-1">
-                      <p className="font-bold text-sm group-hover:text-primary transition-colors">{alert.route}</p>
-                      <p className="text-xs text-muted-foreground flex items-center">
-                         <span className={`h-2 w-2 rounded-full mr-2 ${alert.risk === 'high' ? 'bg-destructive' : 'bg-amber-500'}`} />
-                         {alert.reason}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className={`text-sm font-black ${alert.risk === 'high' ? 'text-destructive' : 'text-amber-600'}`}>+{alert.delay}</p>
-                      <p className="text-[10px] uppercase font-bold text-muted-foreground">EST. Delay</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="text-sm text-muted-foreground">{item.desc}</p>
             </CardContent>
           </Card>
-        </div>
+        ))}
       </div>
+    </div>
+  </div>
+);
+
+export default function ZentaraAboutPage() {
+  return (
+    <div className="container mx-auto max-w-6xl px-4 pt-4">
+      <AboutSection />
     </div>
   );
 }
